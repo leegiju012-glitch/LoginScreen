@@ -19,17 +19,22 @@ namespace LoginScreen
             txtPW = new TextBox();
             txtID = new TextBox();
             btnLogin = new Button();
+            lblErrorMsg = new Label();
             SuspendLayout();
-       
+            // 
+            // lblAppName
+            // 
             lblAppName.AutoSize = true;
             lblAppName.Font = new Font("맑은 고딕", 35F);
-            lblAppName.ForeColor = Color.Yellow;
+            lblAppName.ForeColor = Color.Black;
             lblAppName.Location = new Point(178, 26);
             lblAppName.Name = "lblAppName";
             lblAppName.Size = new Size(181, 78);
             lblAppName.TabIndex = 0;
             lblAppName.Text = "Login";
-          
+            // 
+            // txtPW
+            // 
             txtPW.Font = new Font("맑은 고딕", 27.75F);
             txtPW.ForeColor = Color.Silver;
             txtPW.Location = new Point(108, 224);
@@ -40,7 +45,9 @@ namespace LoginScreen
             txtPW.Enter += txtPW_Enter;
             txtPW.KeyDown += txtPW_KeyDown;
             txtPW.Leave += txtPW_Leave;
-          
+            // 
+            // txtID
+            // 
             txtID.Font = new Font("맑은 고딕", 27.75F);
             txtID.ForeColor = Color.Silver;
             txtID.Location = new Point(108, 137);
@@ -51,10 +58,12 @@ namespace LoginScreen
             txtID.Enter += txtID_Enter;
             txtID.KeyDown += txtID_KeyDown;
             txtID.Leave += txtID_Leave;
-           
-            btnLogin.BackColor = Color.Crimson;
+            // 
+            // btnLogin
+            // 
+            btnLogin.BackColor = Color.RosyBrown;
             btnLogin.Font = new Font("맑은 고딕", 20F);
-            btnLogin.ForeColor = Color.Yellow;
+            btnLogin.ForeColor = Color.Black;
             btnLogin.Location = new Point(162, 326);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(212, 84);
@@ -62,11 +71,26 @@ namespace LoginScreen
             btnLogin.Text = "로그인";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
-           
+            // 
+            // lblErrorMsg
+            // 
+            lblErrorMsg.AutoSize = true;
+            lblErrorMsg.Font = new Font("맑은 고딕", 12F);
+            lblErrorMsg.ForeColor = Color.Red;
+            lblErrorMsg.Location = new Point(108, 296);
+            lblErrorMsg.Name = "lblErrorMsg";
+            lblErrorMsg.Size = new Size(377, 28);
+            lblErrorMsg.TabIndex = 3;
+            lblErrorMsg.Text = "아이디 또는 비밀번호가 잘못되었습니다.";
+            lblErrorMsg.Visible = false;
+            // 
+            // Form1
+            // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Red;
+            BackColor = Color.RosyBrown;
             ClientSize = new Size(539, 450);
+            Controls.Add(lblErrorMsg);
             Controls.Add(btnLogin);
             Controls.Add(txtID);
             Controls.Add(txtPW);
@@ -82,5 +106,6 @@ namespace LoginScreen
         private TextBox txtPW;
         private TextBox txtID;
         private Button btnLogin;
+        private Label lblErrorMsg;
     }
 }
