@@ -4,6 +4,9 @@ namespace LoginScreen
 {
     public partial class Form1 : Form
     {
+        string myID = "admin";
+        string myPW = "superman";
+
         public Form1()
         {
             InitializeComponent();
@@ -50,24 +53,36 @@ namespace LoginScreen
 
         private void txtPW_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Tab)
+            if (e.KeyCode == Keys.Enter)
             {
-                SelectNextControl(txtPW, true, true, true, true);
+                e.SuppressKeyPress = true; 
+                btnLogin.PerformClick(); 
             }
-        }
-        string myID = "admin";
-        string myPW = "superman";
+            }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string inputID = txtID.Text; 
-            string inputPW = txtPW.Text; 
-            if (inputID == myID && inputPW == myPW) 
-            { MessageBox.Show("로그인성공!");
+            string inputID = txtID.Text;
+            string inputPW = txtPW.Text;
+
+            if (inputID == myID && inputPW == myPW)
+            {
+                MessageBox.Show("로그인 성공!","로그인",MessageBoxButtons.OK);
+
             }
             else
             {
-                MessageBox.Show("로그인실패~");
+                MessageBox.Show("로그인 실패~","로그인", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txtID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; 
+                txtPW.Focus(); 
+            }
+            }
     }
 }
